@@ -4,81 +4,79 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/pad1">
+    android:padding="@dimen/padding_standard">
 
     <TextView
         android:id="@+id/display1"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="@dimen/display_height"
         android:gravity="center"
         android:text="@string/CalTxt"
-        android:textSize="@dimen/CaltTxtSize"
-        android:padding="@dimen/CalPad"
-        android:layout_marginBottom="@dimen/CalMargB"
-        />
+        android:textSize="@dimen/text_size_large"
+        android:padding="@dimen/padding_standard"
+        android:layout_marginBottom="@dimen/margin_standard" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="@dimen/layH1"
-        android:layout_weight="@dimen/layW1" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <TextView
         android:id="@+id/display2"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/layH2"
+        android:layout_height="@dimen/display_height"
         android:gravity="end"
         android:text="@string/_0"
-        android:textSize="@dimen/zeroTxtSize"
-        android:padding="@dimen/zeroPadding"
-        android:layout_marginBottom="@dimen/zeroMargB"
-        />
+        android:textSize="@dimen/text_size_large"
+        android:padding="@dimen/padding_standard"
+        android:layout_marginBottom="@dimen/margin_standard" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="@dimen/layH3"
-        android:layout_weight="@dimen/layW3" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="@dimen/Sum">
+        android:weightSum="@dimen/weight_sum">
 
         <Button
             android:id="@+id/btn_clear"
-            android:layout_width="@dimen/layWi4"
-            android:layout_height="@dimen/layH4"
-            android:layout_weight="@dimen/layW4"
-            android:layout_margin="@dimen/cMarg"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/c"
-            android:textSize="@dimen/cTxtSize" />
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/btn_divide"
-            android:layout_width="@dimen/layWi5"
-            android:layout_height="@dimen/layH5"
-            android:layout_weight="@dimen/layW6"
-            android:layout_margin="@dimen/divMarg"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/divide"
-            android:textSize="@dimen/divTxtSize" />
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/btn_multiply"
-            android:layout_width="@dimen/layWi6"
-            android:layout_height="@dimen/layH6"
-            android:layout_margin="@dimen/mulMarg"
-            android:layout_weight="@dimen/layW7"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_margin="@dimen/margin_small"
+            android:layout_weight="@dimen/weight_normal"
             android:text="@string/multiply"
-            android:textSize="@dimen/mulTxtSize" />
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/btn_delete"
-            android:layout_width="@dimen/layWi7"
-            android:layout_height="@dimen/layH7"
-            android:layout_weight="@dimen/layW8"
-            android:layout_margin="@dimen/delMarg"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/del"
-            android:textSize="@dimen/delTxtSize" />
+            android:textSize="@dimen/text_size_medium" />
 
     </LinearLayout>
 
@@ -86,43 +84,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="@dimen/Sum2">
+        android:weightSum="@dimen/weight_sum">
 
         <Button
             android:id="@+id/btn_7"
-            android:layout_width="@dimen/layWi8"
-            android:layout_height="@dimen/layH8"
-            android:layout_weight="@dimen/layW9"
-            android:layout_margin="@dimen/btn7Marg"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/_7"
-            android:textSize="@dimen/btn7TxtSize" />
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/btn_8"
-            android:layout_width="@dimen/layWi9"
-            android:layout_height="@dimen/layH9"
-            android:layout_weight="@dimen/layW10"
-            android:layout_margin="@dimen/btn8Marg"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/_8"
-            android:textSize="@dimen/btn8TxtSize" />
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/btn_9"
-            android:layout_width="@dimen/layWi10"
-            android:layout_height="@dimen/layH10"
-            android:layout_weight="@dimen/layW11"
-            android:layout_margin="@dimen/layMarg10"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/_9"
-            android:textSize="@dimen/TxtSize10" />
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/btn_subtract"
-            android:layout_width="@dimen/layWi11"
-            android:layout_height="@dimen/layH11"
-            android:layout_weight="@dimen/layW12"
-            android:layout_margin="@dimen/layMarg11"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/subtract"
-            android:textSize="@dimen/txtSize11" />
+            android:textSize="@dimen/text_size_medium" />
 
     </LinearLayout>
 
@@ -130,43 +128,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="@dimen/Sum3">
+        android:weightSum="@dimen/weight_sum">
 
         <Button
             android:id="@+id/btn_4"
-            android:layout_width="@dimen/layWi12"
-            android:layout_height="@dimen/layH12"
-            android:layout_weight="@dimen/layW13"
-            android:layout_margin="@dimen/layMarg12"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/_4"
-            android:textSize="@dimen/txtSize12" />
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/btn_5"
-            android:layout_width="@dimen/layWi13"
-            android:layout_height="@dimen/layH13"
-            android:layout_weight="@dimen/layW14"
-            android:layout_margin="@dimen/layMarg13"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/_5"
-            android:textSize="@dimen/txtSize13" />
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/btn_6"
-            android:layout_width="@dimen/layWi14"
-            android:layout_height="@dimen/layH14"
-            android:layout_weight="@dimen/layW15"
-            android:layout_margin="@dimen/marg14"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/_6"
-            android:textSize="@dimen/txtSize14" />
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/btn_add"
-            android:layout_width="@dimen/layWi15"
-            android:layout_height="@dimen/layH15"
-            android:layout_weight="@dimen/layW16"
-            android:layout_margin="@dimen/marg15"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/add"
-            android:textSize="@dimen/txtSize15" />
+            android:textSize="@dimen/text_size_medium" />
 
     </LinearLayout>
 
@@ -174,88 +172,82 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="@dimen/Sum4">
+        android:weightSum="@dimen/weight_sum">
 
         <Button
             android:id="@+id/btn_1"
-            android:layout_width="@dimen/layWi16"
-            android:layout_height="@dimen/layH16"
-            android:layout_weight="@dimen/layW17"
-            android:layout_margin="@dimen/marg16"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/_1"
-            android:textSize="@dimen/txtSize16" />
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/btn_2"
-            android:layout_width="@dimen/layWi17"
-            android:layout_height="@dimen/layH17"
-            android:layout_weight="@dimen/layW18"
-            android:layout_margin="@dimen/marg17"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/_2"
-            android:textSize="@dimen/txtSize17" />
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/btn_3"
-            android:layout_width="@dimen/layWi18"
-            android:layout_height="@dimen/layH18"
-            android:layout_weight="@dimen/layW19"
-            android:layout_margin="@dimen/marg18"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/_3"
-            android:textSize="@dimen/txtSize18" />
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/percent"
-            android:layout_width="@dimen/layWi19"
-            android:layout_height="@dimen/layH19"
-            android:layout_weight="@dimen/layW20"
-            android:layout_margin="@dimen/marg19"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/percent"
-            android:textSize="@dimen/txtSize19" />
-
-
+            android:textSize="@dimen/text_size_medium" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="@dimen/Sum5">
+        android:weightSum="@dimen/weight_sum">
 
         <Button
             android:id="@+id/btn_0"
-            android:layout_width="@dimen/layWi20"
-            android:layout_height="@dimen/layH20"
-            android:layout_weight="@dimen/layW21"
-            android:layout_margin="@dimen/marg20"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_double"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/zero"
-            android:textSize="@dimen/txtSize20" />
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/btn_decimal"
-            android:layout_width="@dimen/layWi21"
-            android:layout_height="@dimen/layH21"
-            android:layout_weight="@dimen/layW22"
-            android:layout_margin="@dimen/layMarg21"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/decimal"
-            android:textSize="@dimen/txtSize21" />
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/btn_equals"
-            android:layout_width="@dimen/layWi22"
-            android:layout_height="@dimen/layH22"
-            android:layout_weight="@dimen/layW23"
-            android:layout_margin="@dimen/marg22"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small"
             android:text="@string/equals"
-            android:textSize="@dimen/txtSize22" />
+            android:textSize="@dimen/text_size_medium" />
 
         <View
-            android:layout_width="@dimen/layWi23"
-            android:layout_height="@dimen/layH23"
-            android:layout_weight="@dimen/layW24"
-            android:layout_margin="@dimen/marg23" />
-
-
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="@dimen/weight_normal"
+            android:layout_margin="@dimen/margin_small" />
     </LinearLayout>
-
-
 </LinearLayout>
