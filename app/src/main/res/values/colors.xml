@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="primary_color">#2E7D32</color>
+    <color name="primary_dark">#1B5E20</color>
+    <color name="secondary_color">#FF6F00</color>
+    <color name="secondary_dark">#E65100</color>
+
+    <color name="number_button">#37474F</color>
+    <color name="operation_button">#FF6F00</color>
+    <color name="clear_button">#D32F2F</color>
+
+    <color name="display_background">#263238</color>
+    <color name="display_text">#FFFFFF</color>
+
+    <color name="background">#121212</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
