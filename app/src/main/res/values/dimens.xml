@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="pad1">16dp</dimen>
+    <dimen name="CaltTxtSize">40sp</dimen>
+    <dimen name="CalPad">16dp</dimen>
+    <dimen name="CalMargB">16dp</dimen>
+    <dimen name="layH1">16dp</dimen>
+    <dimen name="layW1">16dp</dimen>
+    <dimen name="layH2">100dp</dimen>
+    <dimen name="zeroTxtSize">40sp</dimen>
+    <dimen name="zeroPadding">16dp</dimen>
+    <dimen name="zeroMargB">16dp</dimen>
+</resources>

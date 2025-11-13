@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="@dimen/pad1">
 
     <TextView
         android:id="@+id/display1"
@@ -12,25 +12,25 @@
         android:layout_height="100dp"
         android:gravity="center"
         android:text="@string/CalTxt"
-        android:textSize="40sp"
-        android:padding="16dp"
-        android:layout_marginBottom="16dp"
+        android:textSize="@dimen/CaltTxtSize"
+        android:padding="@dimen/CalPad"
+        android:layout_marginBottom="@dimen/CalMargB"
         />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="@dimen/layH1"
+        android:layout_weight="@dimen/layW1" />
 
     <TextView
         android:id="@+id/display2"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="@dimen/layH2"
         android:gravity="end"
         android:text="@string/_0"
-        android:textSize="40sp"
-        android:padding="16dp"
-        android:layout_marginBottom="16dp"
+        android:textSize="@dimen/zeroTxtSize"
+        android:padding="@dimen/zeroPadding"
+        android:layout_marginBottom="@dimen/zeroMargB"
         />
 
     <Space
