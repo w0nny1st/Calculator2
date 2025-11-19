@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/display_height"
         android:gravity="center"
+        android:textColor="@color/white"
         android:text="@string/CalTxt"
         android:textSize="@dimen/text_size_large"
         android:padding="@dimen/padding_standard"
@@ -26,6 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/display_height"
         android:gravity="end"
+        android:textColor="@color/white"
         android:text="@string/_0"
         android:textSize="@dimen/text_size_large"
         android:padding="@dimen/padding_standard"
@@ -46,7 +48,7 @@
             android:id="@+id/btn_clear"
             android:layout_width="0dp"
             android:layout_height="@dimen/button_height"
-            android:layout_weight="@dimen/weight_normal"
+            android:layout_weight="@dimen/weight_double"
             android:layout_margin="@dimen/margin_small"
             android:text="@string/c"
             android:textSize="@dimen/text_size_medium" />
@@ -67,15 +69,6 @@
             android:layout_margin="@dimen/margin_small"
             android:layout_weight="@dimen/weight_normal"
             android:text="@string/multiply"
-            android:textSize="@dimen/text_size_medium" />
-
-        <Button
-            android:id="@+id/btn_delete"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/button_height"
-            android:layout_weight="@dimen/weight_normal"
-            android:layout_margin="@dimen/margin_small"
-            android:text="@string/del"
             android:textSize="@dimen/text_size_medium" />
 
     </LinearLayout>
@@ -163,6 +156,7 @@
             android:layout_height="@dimen/button_height"
             android:layout_weight="@dimen/weight_normal"
             android:layout_margin="@dimen/margin_small"
+            android:textColor="@color/white"
             android:text="@string/add"
             android:textSize="@dimen/text_size_medium" />
 

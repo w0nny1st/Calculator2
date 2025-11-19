@@ -18,6 +18,7 @@
     <dimen name="weight_normal">1</dimen>
     <dimen name="weight_double">2</dimen>
 
+
     <dimen name="button_corner_radius">12dp</dimen>
 
 </resources>

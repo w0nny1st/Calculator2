@@ -19,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView display2;
     private String currentDisplayValue = "0";
+    private String previousValue = "";
+    private String currentOperator = "";
+    private boolean resetOnNextInput = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState != null) {
             currentDisplayValue = savedInstanceState.getString("DISPLAY_VALUE", "0");
-            Log.d(TAG, "Восстановлено значение: " + currentDisplayValue);
+            previousValue = savedInstanceState.getString("PREVIOUS_VALUE", "");
+            currentOperator = savedInstanceState.getString("CURRENT_OPERATOR", "");
+            Log.d(TAG, "Восстановлено полное состояние калькулятора");
         }
 
         display2.setText(currentDisplayValue);
@@ -62,29 +67,108 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_9).setOnClickListener(v -> addNumber("9"));
 
         findViewById(R.id.btn_clear).setOnClickListener(v -> {
-            currentDisplayValue = "0";
-            display2.setText(currentDisplayValue);
-            Log.d(TAG, "Экран очищен");
+            clearAll();
         });
 
-        int[] otherButtonIds = {
-                R.id.btn_add, R.id.btn_subtract, R.id.btn_multiply, R.id.btn_divide,
-                R.id.btn_equals, R.id.btn_decimal, R.id.btn_delete
-        };
+        findViewById(R.id.btn_add).setOnClickListener(v -> setOperator("+"));
+        findViewById(R.id.btn_subtract).setOnClickListener(v -> setOperator("-"));
+        findViewById(R.id.btn_multiply).setOnClickListener(v -> setOperator("*"));
+        findViewById(R.id.btn_divide).setOnClickListener(v -> setOperator("/"));
+        findViewById(R.id.btn_equals).setOnClickListener(v -> calculateResult());
+        findViewById(R.id.btn_decimal).setOnClickListener(v -> addDecimalPoint());
+    }
 
-        for (int buttonId : otherButtonIds) {
-            findViewById(buttonId).setOnClickListener(v -> {
-                String buttonText = ((Button) v).getText().toString();
-                Log.d(TAG, "Нажата кнопка: " + buttonText);
-                makeToast("Кнопка " + buttonText + " нажата");
-            });
+    private void addNumber(String number) {
+        if (resetOnNextInput || currentDisplayValue.equals("0")) {
+            currentDisplayValue = number;
+            resetOnNextInput = false;
+        } else {
+            currentDisplayValue += number;
         }
+        display2.setText(currentDisplayValue);
+        Log.d(TAG, "Добавлена цифра: " + number + ", текущее значение: " + currentDisplayValue);
+    }
+
+    private void addDecimalPoint() {
+        if (resetOnNextInput) {
+            currentDisplayValue = "0.";
+            resetOnNextInput = false;
+        } else if (!currentDisplayValue.contains(".")) {
+            currentDisplayValue += ".";
+        }
+        display2.setText(currentDisplayValue);
+    }
+
+    private void setOperator(String operator) {
+
+        if (!previousValue.isEmpty() && !currentOperator.isEmpty() && !resetOnNextInput) {
+            calculateResult();
+        }
+
+        previousValue = currentDisplayValue;
+        currentOperator = operator;
+        resetOnNextInput = true;
+        Log.d(TAG, "Установлен оператор: " + operator);
+    }
+
+    private void calculateResult() {
+        if (previousValue.isEmpty() || currentOperator.isEmpty()) {
+            return;
+        }
+
+        try {
+            double firstNum = Double.parseDouble(previousValue);
+            double secondNum = Double.parseDouble(currentDisplayValue);
+            double result = 0;
+
+            switch (currentOperator) {
+                case "+": result = firstNum + secondNum; break;
+                case "-": result = firstNum - secondNum; break;
+                case "*": result = firstNum * secondNum; break;
+                case "/":
+                    if (secondNum != 0) result = firstNum / secondNum;
+                    else {
+                        display2.setText("Ошибка");
+                        clearAll();
+                        return;
+                    }
+                    break;
+            }
+
+            if (result == (long) result) {
+                currentDisplayValue = String.valueOf((long) result);
+            } else {
+                currentDisplayValue = String.valueOf(result);
+                if (currentDisplayValue.length() > 10) {
+                    currentDisplayValue = String.format("%.6f", result).replace(",", ".");
+                }
+            }
+
+            display2.setText(currentDisplayValue);
+            previousValue = currentDisplayValue;
+            resetOnNextInput = true;
+
+        } catch (Exception e) {
+            display2.setText("Ошибка");
+            clearAll();
+        }
+    }
+
+    private void clearAll() {
+        currentDisplayValue = "0";
+        previousValue = "";
+        currentOperator = "";
+        resetOnNextInput = false;
+        display2.setText(currentDisplayValue);
+        Log.d(TAG, "Полный сброс калькулятора");
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("DISPLAY_VALUE", currentDisplayValue);
+        outState.putString("PREVIOUS_VALUE", previousValue);
+        outState.putString("CURRENT_OPERATOR", currentOperator);
         Log.d(TAG, "Сохранено значение: " + currentDisplayValue);
         makeToast("Состояние сохранено");
     }
@@ -93,6 +177,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         currentDisplayValue = savedInstanceState.getString("DISPLAY_VALUE", "0");
+        previousValue = savedInstanceState.getString("PREVIOUS_VALUE", "");
+        currentOperator = savedInstanceState.getString("CURRENT_OPERATOR", "");
         display2.setText(currentDisplayValue);
         Log.d(TAG, "Восстановлено после поворота: " + currentDisplayValue);
         makeToast("Состояние восстановлено");
@@ -104,20 +190,13 @@ public class MainActivity extends AppCompatActivity {
         String orientationText = (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) ? "ЛАНДШАФТ" : "ПОРТРЕТ";
         Log.d(TAG, "Ориентация изменена на: " + orientationText);
         makeToast("Ориентация: " + orientationText);
-    }
 
+    }
     private void makeToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
         Log.d(TAG, message);
     }
-
-    private void addNumber(String number) {
-        if (currentDisplayValue.equals("0")) {
-            currentDisplayValue = number;
-        } else {
-            currentDisplayValue += number;
-        }
-        display2.setText(currentDisplayValue);
-        Log.d(TAG, "Добавлена цифра: " + number + ", текущее значение: " + currentDisplayValue);
-    }
 }
+
+
+
