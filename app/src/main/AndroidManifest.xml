@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Calculator2">
         <activity
+            android:name=".AboutActivity"
+            android:label="О приложении"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
