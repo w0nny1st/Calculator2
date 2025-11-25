@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.core.view.GravityCompat;
 import androidx.activity.OnBackPressedCallback;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -231,7 +233,9 @@ public class MainActivity extends AppCompatActivity {
         resetOnNextInput = false;
         display2.setText(currentDisplayValue);
         Log.d(TAG, "Полный сброс калькулятора");
-    }
+
+    showSnackbar("Калькулятор очищен");
+}
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -267,4 +271,19 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
         Log.d(TAG, message);
     }
+    private void showSnackbar(String message) {
+        View rootView = findViewById(android.R.id.content);
+
+        Snackbar snackbar = Snackbar.make(rootView, message, Snackbar.LENGTH_SHORT);
+        snackbar.setAction("OK", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "Snackbar action clicked");
+            }
+        });
+
+        snackbar.show();
+    }
+
+
 }
